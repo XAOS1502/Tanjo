@@ -445,6 +445,15 @@ class Utilities:
         except discord.HTTPException:
             return await ctx.error('Unable to send embeds here!')
 
+    @commands.command()
+    async def clap(self, ctx, *, msg):
+        """ Clap that message! """
+        if msg is not None:
+            text = msg.lower().replace(' ', ' :clap: ')
+            await ctx.send(text)
+        else:
+            return await ctx.error(':clap:')
+
 
 def setup(bot):
     bot.add_cog(Utilities(bot))
